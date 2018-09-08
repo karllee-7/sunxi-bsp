@@ -532,12 +532,12 @@ fb1_height               = 0
 lcd0_backlight           = 180
 lcd1_backlight           = 180
 
-lcd0_bright              = 180
+lcd0_bright              = 50
 lcd0_contrast            = 50
 lcd0_saturation          = 57
 lcd0_hue                 = 50
 
-lcd1_bright              = 180
+lcd1_bright              = 50
 lcd1_contrast            = 50
 lcd1_saturation          = 57
 lcd1_hue                 = 50
@@ -587,11 +587,13 @@ lcd_used            = 1
 lcd_driver_name     = "default_lcd"
 lcd_if              = 0
 lcd_hv_if           = 0
+lcd_hv_clk_phase    = 0
+lcd_hv_sync_polarity = 0
 
 lcd_x               = 800
 lcd_y               = 480
-lcd_width           = 86
-lcd_height          = 154
+lcd_width           = 0
+lcd_height          = 0
 
 lcd_hspw            = 0
 lcd_hbp             = 46
@@ -599,7 +601,7 @@ lcd_ht              = 1055
 lcd_vspw            = 5
 lcd_vbp             = 23
 lcd_vt              = 525
-lcd_dclk_freq       = 30
+lcd_dclk_freq       = 33
 
 lcd_pwm_used        = 1
 lcd_pwm_ch          = 0

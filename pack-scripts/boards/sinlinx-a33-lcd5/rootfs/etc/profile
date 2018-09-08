@@ -10,6 +10,10 @@ export PATH=\
 
 export PS1='[\u@\h \w]#'
 
+insmod /lib/modules/ft5x_ts.ko
+insmod /lib/modules/ump.ko
+insmod /lib/modules/mali.ko
+
 ## touch screen
 export TSLIB_TSEVENTTYPE=H3600
 export TSLIB_CONSOLEDEVICE=none
@@ -28,17 +32,16 @@ elif [ -e "/dev/input/event1" ]; then
 fi
 
 ############################################
-#export QTDIR=/opt/qt-5.9.6-armhf-4.9.4-linuxfb
-export QTDIR=/opt/qt-5.9.6-armhf-4.9.4-eglfs
 export QT_QPA_PLATFORM=eglfs
 #export QT_QPA_PLATFORM=linuxfb
 
 if [ "$QT_QPA_PLATFORM" == "linuxfb" ]; then
+	export QTDIR=/opt/qt-5.9.6-armhf-4.9.4-linuxfb
 	export QWS_DISPLAY=LinuxFb:/dev/fb0
 	export QWS_SIZE=800x480
 	export QWS_MOUSE_PROTO=tslib:$TSLIB_TSDEVICE
-
 elif [ "$QT_QPA_PLATFORM" == "eglfs" ]; then
+	export QTDIR=/opt/qt-5.9.6-armhf-4.9.4-eglfs
 	export QT_QPA_EGLFS_INTEGRATION=eglfs_mali
 	#export QT_QPA_EGLFS_PHYSICAL_WIDTH=
 	#export QT_QPA_EGLFS_PHYSICAL_HEIGHT=
@@ -62,8 +65,8 @@ export QML2_IMPORT_PATH=${QTDIR}/qml
 #export DFBARGS=module-dir=/opt/directfb-1.7-gnueabihf-4.9.4/lib/directfb-1.8-0
 ########################################
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/opt/ffmpeg-3.4.2-armhf-4.9.4/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/opt/qt-5.9.6-armhf-4.9.4-eglfs/lib:$LD_LIBRARY_PATH
 #export LD_LIBRARY_PATH=/opt/CedarX-12.06.2015-gnueabihf-4.9.4/lib:$LD_LIBRARY_PATH
 #export LD_LIBRARY_PATH=/opt/alsa-lib-1.1.6-armhf-4.9.4/lib:$LD_LIBRARY_PATH
 #export LD_LIBRARY_PATH=/mnt/lib:$LD_LIBRARY_PATH
@@ -78,19 +81,19 @@ export LD_LIBRARY_PATH=/opt/qt-5.9.6-armhf-4.9.4-eglfs/lib:$LD_LIBRARY_PATH
 #fi
 
 if [ -e "/dev/mmcblk1p3" ]; then
-	mount /dev/mmcblk1p3 /home/default
-	echo "mount mount /dev/mmcblk1p3 /home/default"
+	mount /dev/mmcblk1p3 /home/exCard
+	echo "mount mount /dev/mmcblk1p3 /home/exCard"
 elif [ -e "/dev/mmcblk1p2" ]; then
-	mount /dev/mmcblk1p2 /home/default
-	echo "mount mount /dev/mmcblk1p2 /home/default"
+	mount /dev/mmcblk1p2 /home/exCard
+	echo "mount mount /dev/mmcblk1p2 /home/exCard"
 elif [ -e "/dev/mmcblk1p1" ]; then
-	mount /dev/mmcblk1p1 /home/default
-	echo "mount mount /dev/mmcblk1p1 /home/default"
+	mount /dev/mmcblk1p1 /home/exCard
+	echo "mount mount /dev/mmcblk1p1 /home/exCard"
 else
 	echo "no ext memory"
 fi
 
-#./home/5cun_linux_tongyong
+./home/5cun_linux_tongyong
 
 #udhcpc
 #mount -t nfs 192.168.1.110:/home/karllee/share /mnt -o nolock
