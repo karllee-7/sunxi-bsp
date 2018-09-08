@@ -68,7 +68,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/opt/ffmpeg-3.4.2-armhf-4.9.4/lib:$LD_LIBRARY_PATH
 #export LD_LIBRARY_PATH=/opt/CedarX-12.06.2015-gnueabihf-4.9.4/lib:$LD_LIBRARY_PATH
-#export LD_LIBRARY_PATH=/opt/alsa-lib-1.1.6-armhf-4.9.4/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/opt/alsa-lib-1.1.6-armhf-4.9.4/lib:$LD_LIBRARY_PATH
 #export LD_LIBRARY_PATH=/mnt/lib:$LD_LIBRARY_PATH
 
 #sleep 1  #wait touchscreen

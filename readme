@@ -3,3 +3,13 @@
 3. arisc is different
 4. uboot include/configs/sun8iw5p1.h #define CONFIG_SYS_TEXT_BASE (0x4A000000) for sinlinx boot0
 
+
+alsa:
+./amixer -c 0 set 'DAC volume',0 255 255
+./amixer -c 0 set 'DAC mixer gain',0 100% 100%
+
+./amixer -c 0 set 'Headphone',0 on on
+./amixer -c 0 set 'DACL Mixer AIF1DA0L',0 on on
+./amixer -c 0 set 'DACR Mixer AIF1DA0R',0 on on
+
+
