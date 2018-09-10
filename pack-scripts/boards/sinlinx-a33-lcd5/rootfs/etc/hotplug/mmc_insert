@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if[ ! -d /home/$MDEV ]; then
+	mkdir /home/$MDEV
+fi
+mount /dev/$MDEV /home/$MDEV"
+echo "mount /dev/$MDEV to /home/$MDEV"

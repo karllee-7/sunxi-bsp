@@ -607,7 +607,7 @@ lcd_pwm_used        = 1
 lcd_pwm_ch          = 0
 lcd_pwm_freq        = 50000
 lcd_pwm_pol         = 0
-lcd_pwm_max_limit   = 150
+lcd_pwm_max_limit   = 255
 lcd_bl_en           = port:PH00<1><0><default><1>
 
 ; LCD-RST

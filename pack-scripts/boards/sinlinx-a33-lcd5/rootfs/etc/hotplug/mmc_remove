@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -d /home/$MDEV ]; then
+	umount /home/$MDEV
+	rm -r /home/$MDEV
+	echo "umount /home/$MDEV"
+fi
+

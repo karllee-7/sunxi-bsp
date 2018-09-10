@@ -93,6 +93,15 @@ else
 	echo "no ext memory"
 fi
 
+/opt/alsa-utils-1.1.6-armhf-4.9.4/bin/amixer -c 0 set 'DAC volume',0 255 255
+/opt/alsa-utils-1.1.6-armhf-4.9.4/bin/amixer -c 0 set 'DAC mixer gain',0 100% 100%
+
+/opt/alsa-utils-1.1.6-armhf-4.9.4/bin/amixer -c 0 set 'Headphone',0 on on
+/opt/alsa-utils-1.1.6-armhf-4.9.4/bin/amixer -c 0 set 'DACL Mixer AIF1DA0L',0 on on
+/opt/alsa-utils-1.1.6-armhf-4.9.4/bin/amixer -c 0 set 'DACR Mixer AIF1DA0R',0 on on
+
+export PATH=/opt/alsa-utils-1.1.6-armhf-4.9.4/bin:$PATH
+
 ./home/5cun_linux_tongyong
 
 #udhcpc

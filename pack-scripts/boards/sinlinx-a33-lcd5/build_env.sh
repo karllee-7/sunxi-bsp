@@ -10,7 +10,7 @@ export UBOOT_CONFIG=sun8iw5p1_config
 export UBOOT_CROSS_COMPILE=arm-linux-gnueabi-
 
 export KERNEL_DIR=$TOP_DIR/linux-sunxi
-export KERNEL_CONFIG=sun8iw5p1smp_bpi_defconfig
+export KERNEL_CONFIG=sun8iw5p1smp_sinlinx_defconfig
 export KERNEL_CROSS_COMPILE=arm-openwrt-linux-muslgnueabi-
 
 export STAGING_DIR=$TOOLCHAIN_BASE/arm-openwrt-linux-muslgnueabi-gcc-5.2.0
