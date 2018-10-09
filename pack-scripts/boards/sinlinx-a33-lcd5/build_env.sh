@@ -23,6 +23,7 @@ export PATH=$BOARD_DIR/pctools/android:$PATH
 #=========================================================================
 export MALI_DRV_ROOT=$KERNEL_DIR/modules/gpu/mali400/kernel_mode/driver/src/devicedrv/mali
 export MALI_UMP_ROOT=$KERNEL_DIR/modules/gpu/mali400/kernel_mode/driver/src/devicedrv/ump
+export MALI_DRM_ROOT=$KERNEL_DIR/modules/gpu/mali400/kernel_mode/driver/src/egl/x11/drm_module/mali_drm
 export MALI_OUTPUT_DIR=$KERNEL_DIR/output/lib/modules/3.4.39-BPI-M2M-Kernel/kernel/drivers/gpu
 
 build_gpu()
@@ -32,6 +33,7 @@ build_gpu()
 		ARCH=$ARCH CROSS_COMPILE=$KERNEL_CROSS_COMPILE
 	make -C ${MALI_DRV_ROOT} USING_UMP=0 BUILD=release \
 		ARCH=$ARCH KDIR=${KERNEL_DIR} CROSS_COMPILE=$KERNEL_CROSS_COMPILE
+	make -C ${MALI_DRM_ROOT} ARCH=$ARCH KDIR=${KERNEL_DIR} CROSS_COMPILE=$KERNEL_CROSS_COMPILE
 	[ ! -d "$MALI_OUTPUT_DIR" ] && mkdir -p $MALI_OUTPUT_DIR
 	cp -v $MALI_UMP_ROOT/ump.ko $MALI_OUTPUT_DIR
 	cp -v $MALI_DRV_ROOT/mali.ko $MALI_OUTPUT_DIR
@@ -44,6 +46,7 @@ clean_gpu()
 		KDIR=${KERNEL_DIR} ARCH=$ARCH CROSS_COMPILE=$KERNEL_CROSS_COMPILE clean
 	make -C ${MALI_DRV_ROOT} USING_UMP=1 BUILD=release \
 		KDIR=${KERNEL_DIR} ARCH=$ARCH CROSS_COMPILE=$KERNEL_CROSS_COMPILE clean
+	make -C ${MALI_DRM_ROOT} ARCH=$ARCH KDIR=${KERNEL_DIR} CROSS_COMPILE=$KERNEL_CROSS_COMPILE clean
 	echo -e "\033[33minfo clean gpu end\033[0m"
 }
 #=========================================================================
@@ -142,8 +145,8 @@ pack_image()
 		--base 0x40000000 \
 		-o boot.fex
 
-        unix2dos sys_config.fex
-        unix2dos sys_partition.fex
+        todos sys_config.fex
+        todos sys_partition.fex
         script sys_config.fex
         script sys_partition.fex
         cp -v sys_config.bin config.fex
